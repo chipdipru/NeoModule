@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.60.1.11101/W32 for ARM                20/Nov/2018  12:25:49
+# IAR ELF Linker V7.60.1.11101/W32 for ARM                28/Nov/2018  15:08:22
 # Copyright 2007-2016 IAR Systems AB.
 #
 #    Output file  =  D:\work\ArmProjects\NeoST\Debug\Exe\NeoST.out
@@ -81,19 +81,19 @@ __SystemLibrary = DLib
   .rodata          const    0x08000aba    0x0  zero_init3.o [4]
                           - 0x08000aba  0xa0a
 
-"P2", part 1 of 2:                      0xf10
-  .bss             zero     0x20000000  0xf04  NeoLED.o [1]
-  .bss             zero     0x20000f04    0x4  main.o [1]
-  .bss             zero     0x20000f08    0x4  NeoLED.o [1]
-  .bss             zero     0x20000f0c    0x1  main.o [1]
-  .bss             zero     0x20000f0d    0x1  NeoLED.o [1]
-  .bss             zero     0x20000f0e    0x1  NeoLED.o [1]
-                          - 0x20000f0f  0xf0f
+"P2", part 1 of 2:                      0xf24
+  .bss             zero     0x20000000  0xf18  NeoLED.o [1]
+  .bss             zero     0x20000f18    0x4  main.o [1]
+  .bss             zero     0x20000f1c    0x4  NeoLED.o [1]
+  .bss             zero     0x20000f20    0x1  main.o [1]
+  .bss             zero     0x20000f21    0x1  NeoLED.o [1]
+  .bss             zero     0x20000f22    0x1  NeoLED.o [1]
+                          - 0x20000f23  0xf23
 
-"P2", part 2 of 2:                       0xe0
-  CSTACK                    0x20000f10   0xe0  <Block>
-    CSTACK         uninit   0x20000f10   0xe0  <Block tail>
-                          - 0x20000ff0   0xe0
+"P2", part 2 of 2:                       0xc8
+  CSTACK                    0x20000f28   0xc8  <Block>
+    CSTACK         uninit   0x20000f28   0xc8  <Block tail>
+                          - 0x20000ff0   0xc8
 
 
 *******************************************************************************
@@ -103,8 +103,8 @@ __SystemLibrary = DLib
           Address     Size
           -------     ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0xf0f:
-          0x20000000  0xf0f
+    1 destination range, total size 0xf23:
+          0x20000000  0xf23
 
 
 
@@ -116,13 +116,13 @@ Zero (__iar_zero_init3)
     ------                 -------  -------  -------
 D:\work\ArmProjects\NeoST\Debug\Obj: [1]
     DataTables.o                         16
-    NeoLED.o                 1 268             3 850
+    NeoLED.o                 1 268             3 870
     main.o                     652                 5
     startup_stm32f030x6.o      228
     stm32f0xx_it.o              12
     system_stm32f0xx.o         148
     ------------------------------------------------
-    Total:                   2 308       16    3 855
+    Total:                   2 308       16    3 875
 
 command line: [2]
     ------------------------------------------------
@@ -150,9 +150,9 @@ shb_l.a: [5]
     ------------------------------------------------
     Total:                      20
 
-    Linker created                       16      224
+    Linker created                       16      200
 ----------------------------------------------------
-    Grand Total:             2 714       32    4 079
+    Grand Total:             2 714       32    4 075
 
 
 *******************************************************************************
@@ -164,17 +164,17 @@ Entry                      Address   Size  Type      Object
 .iar.init_table$$Base   0x08000a0c          --   Gb  - Linker created -
 .iar.init_table$$Limit  0x08000a1c          --   Gb  - Linker created -
 ?main                   0x08000a1d         Code  Gb  cmain.o [4]
-CSTACK$$Base            0x20000f10          --   Gb  - Linker created -
+CSTACK$$Base            0x20000f28          --   Gb  - Linker created -
 CSTACK$$Limit           0x20000ff0          --   Gb  - Linker created -
 DMA1_Channel1_IRQHandler
                         0x08000431   0x3a  Code  Gb  NeoLED.o [1]
-DataBuffer              0x20000000  0xf04  Data  Lc  NeoLED.o [1]
-DataProcessing          0x20000f04    0x4  Data  Lc  main.o [1]
+DataBuffer              0x20000000  0xf18  Data  Lc  NeoLED.o [1]
+DataProcessing          0x20000f18    0x4  Data  Lc  main.o [1]
 HardFault_Handler       0x08000a87    0x4  Code  Gb  stm32f0xx_it.o [1]
-LEDDataSize             0x20000f0e    0x1  Data  Lc  NeoLED.o [1]
-LEDReset                0x08000819    0x8  Code  Gb  main.o [1]
-LEDsCountMax            0x20000f0d    0x1  Data  Lc  NeoLED.o [1]
-Module_Init             0x080006b3  0x166  Code  Gb  main.o [1]
+LEDDataSize             0x20000f22    0x1  Data  Lc  NeoLED.o [1]
+LEDReset                0x0800081f    0x8  Code  Gb  main.o [1]
+LEDsCountMax            0x20000f21    0x1  Data  Lc  NeoLED.o [1]
+Module_Init             0x080006b3  0x16c  Code  Gb  main.o [1]
 NMI_Handler             0x08000a85    0x2  Code  Gb  stm32f0xx_it.o [1]
 NVIC_EnableIRQ          0x080000b1    0xe  Code  Lc  NeoLED.o [1]
 NVIC_SetPriority        0x080000bf   0x84  Code  Lc  NeoLED.o [1]
@@ -186,11 +186,11 @@ OUTPUTS                 0x08000a64   0x10  Data  Gb  DataTables.o [1]
 PendSV_Handler          0x08000a8d    0x2  Code  Gb  stm32f0xx_it.o [1]
 Region$$Table$$Base     0x08000a0c          --   Gb  - Linker created -
 Region$$Table$$Limit    0x08000a1c          --   Gb  - Linker created -
-ResetAction             0x20000f08    0x4  Data  Lc  NeoLED.o [1]
+ResetAction             0x20000f1c    0x4  Data  Lc  NeoLED.o [1]
 SVC_Handler             0x08000a8b    0x2  Code  Gb  stm32f0xx_it.o [1]
-SetOUTs                 0x08000835   0x4a  Code  Gb  main.o [1]
-SetPWMs                 0x08000821   0x14  Code  Gb  main.o [1]
-State                   0x20000f0c    0x1  Data  Gb  main.o [1]
+SetOUTs                 0x0800083b   0x4a  Code  Gb  main.o [1]
+SetPWMs                 0x08000827   0x14  Code  Gb  main.o [1]
+State                   0x20000f20    0x1  Data  Gb  main.o [1]
 SysTick_Handler         0x08000a8f    0x2  Code  Gb  stm32f0xx_it.o [1]
 SystemInit              0x08000915   0x68  Code  Gb  system_stm32f0xx.o [1]
 TIM3_IRQHandler         0x080002d9  0x132  Code  Gb  NeoLED.o [1]
@@ -225,7 +225,7 @@ main                    0x08000689   0x2a  Code  Gb  main.o [1]
 
   2 714 bytes of readonly  code memory
      32 bytes of readonly  data memory
-  4 079 bytes of readwrite data memory
+  4 075 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

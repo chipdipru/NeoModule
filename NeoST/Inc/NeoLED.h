@@ -46,6 +46,7 @@
 #define       LED_T1H                      8
 #define       LED_T1H_THRESHOLD            (LED_T1H - 3)
 #define       LED_T1H_OUT                  10
+#define       LED_T1H_MAX                  (LED_T1H_OUT + 105)
 #define       LED_T0H_OUT                  2
 
 #define       DATA_SIZE_24BITS             0
@@ -56,7 +57,7 @@
 
 #define       DATA_BYTES_MAX               4
 
-#define       EXTRA_OUT_BITS               1
+#define       EXTRA_OUT_BITS               24//1
 
 
 void TIM3_IRQHandler(void);

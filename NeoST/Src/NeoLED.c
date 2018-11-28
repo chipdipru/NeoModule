@@ -92,7 +92,7 @@ void TIM3_IRQHandler(void)
     uint16_t DataCount = LEDsCountMax * LEDDataSize - DIN_DMA_CHANNEL->CNDTR - LEDDataSize;
     
     if ((DIN_DMA_CHANNEL->CNDTR != LEDsCountMax * LEDDataSize)
-     && ((DIN_DMA_CHANNEL->CNDTR % LEDDataSize) == 0)
+     /*&& ((DIN_DMA_CHANNEL->CNDTR % LEDDataSize) == 0)*/
      && (DataCount != 0) && (DataCount <= ((LEDsCountMax - 1) * LEDDataSize)))
     {
       for (uint16_t i = 0; i < DataCount; i++)
@@ -102,9 +102,11 @@ void TIM3_IRQHandler(void)
         else
           DataBuffer[LEDDataSize + i] = LED_T0H_OUT;
       }
-            
-      DataBuffer[LEDDataSize + DataCount] = LED_T0H_OUT;
+      
+      for (uint16_t i = 0; i < EXTRA_OUT_BITS; i++)
+        DataBuffer[LEDDataSize + DataCount + i] = LED_T0H_OUT;
       DataCount += EXTRA_OUT_BITS;
+      
       
       DOUT_DMA_CHANNEL->CNDTR = DataCount - 1;      
       DOUT_DMA_CHANNEL->CCR |= DMA_CCR_EN;
@@ -142,7 +144,7 @@ void NeoGetData(uint8_t *Buffer)
     for (uint8_t BitNum = 0; BitNum < LEDDataSize; BitNum++)
     {      
       uint8_t DataBit = 0;
-      if ((DataBuffer[BitNum] >= LED_T1H_THRESHOLD) && (DataBuffer[BitNum] <= LED_T1H_OUT))
+      if ((DataBuffer[BitNum] >= LED_T1H_THRESHOLD) && (DataBuffer[BitNum] <= LED_T1H_MAX))
         DataBit = 1;
       
       Buffer[BitNum / 8] |= DataBit << (7 - (BitNum % 8));
